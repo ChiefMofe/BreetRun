@@ -481,7 +481,6 @@
       <div class="actions">
         <button class="btn secondary" type="button" id="selectBackBtn">Back</button>
       </div>
-      <button class="text-btn" type="button" id="unlockAllBtn">Unlock all levels (preview)</button>
     </div>
   </section>
   <section class="overlay blocking" id="nameOverlay" hidden>
@@ -1187,7 +1186,7 @@
     retry: $("retryBtn"), overLevels: $("overLevelsBtn"),
     next: $("nextBtn"), replay: $("replayBtn"), winLevels: $("winLevelsBtn"),
     titleLevel: $("titleLevel"), titleLevels: $("titleLevelsBtn"),
-    levelGrid: $("levelGrid"), selectBack: $("selectBackBtn"), unlockAll: $("unlockAllBtn"),
+    levelGrid: $("levelGrid"), selectBack: $("selectBackBtn"),
     progress: $("progress"), progressFill: $("progressFill"), callout: $("callout"),
     card: $("levelCard"), cardNum: $("lcNum"), cardName: $("lcName"), cardTip: $("lcTip"),
     titlePlayer: $("titlePlayer"), titleBoard: $("titleBoardBtn"), winBoard: $("winBoardBtn"),
@@ -1679,7 +1678,6 @@
       if (!locked) b.addEventListener("click", () => ensurePlayer(() => loadLevel(n, "play")));
       ui.levelGrid.append(b);
     });
-    ui.unlockAll.hidden = progress.unlocked >= LEVELS.length;
   }
   function openSelect() {
     loadLevel(currentLevel, "title");
@@ -1725,13 +1723,6 @@
   ui.winLevels.addEventListener("click", openSelect);
   ui.titleLevels.addEventListener("click", (e) => { e.stopPropagation(); openSelect(); });
   ui.selectBack.addEventListener("click", () => setState("title"));
-  ui.unlockAll.addEventListener("click", () => {
-    progress.unlocked = LEVELS.length;
-    saveProgress();
-    renderSelect();
-    const first = ui.levelGrid.querySelector(".lvl.current") || ui.levelGrid.querySelector("button");
-    if (first) first.focus({ preventScroll: true });
-  });
 
   // ---------- Effects ----------
   function floater(text, x, y, col, coinIcon = false) { floaters.push({ text, x, y, col, coinIcon, life: 0 }); }

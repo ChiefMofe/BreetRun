@@ -71,6 +71,4 @@ delete from public.players where lower(username) = lower('their_name');
   | Level | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
   | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
   | Coins | 78 | 76 | 105 | 118 | 113 | 110 | 102 | 137 | 122 | 141 |
-
-- **Before launch**, remove the "Unlock all levels (preview)" link (the `unlockAllBtn` button and its click handler in `index.html`). It's there so the team can test any level without playing through.
 # BreetRun
