@@ -1928,7 +1928,7 @@
       }
       for (const ch of L.chests) {
         if (ch.hit || player.hurt > 0) continue;
-        if (overlap(px, py, pw, ph, ch.x + 2, GY - 24, 32, 24)) { ch.hit = true; ch.shake = 0.3; penalty("low", ch.x + 18, GY - 26); }
+        if (overlap(px, py, pw, ph, ch.x + 10, GY - 14, 16, 14)) { ch.hit = true; ch.shake = 0.3; penalty("low", ch.x + 18, GY - 26); }
       }
       for (const f of L.fees) {
         if (!f.popped && f.x - player.x < Math.max(60, player.vx * 0.8)) {
